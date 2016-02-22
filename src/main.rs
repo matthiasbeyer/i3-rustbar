@@ -1,3 +1,4 @@
+extern crate chrono;
 extern crate serde;
 extern crate serde_json;
 #[macro_use] extern crate version;
@@ -15,6 +16,7 @@ mod item;
 
 use actor::Actor;
 use actors::text::TextActor;
+use actors::time::TimeActor;
 use item::Item;
 
 use serde_json::ser::PrettyFormatter;
@@ -32,13 +34,13 @@ fn main() {
     }
     println!("["); // Yes this is an ugly hack... but hey, am I perfect?
 
-    let actors = vec![
+    let actors : Vec<Box<Actor>> = vec![
     //     DHCPActor::new(),
     //     BatteryActor::new(),
     //     InternetActor::new(),
     //     AudioActor::new(),
-    //     TimeActor::new(),
-            TextActor::new(String::from("i3-rustbar is awesome!")),
+            Box::new(TimeActor::new()),
+            Box::new(TextActor::new(String::from("i3-rustbar is awesome!"))),
     ];
 
     loop {
