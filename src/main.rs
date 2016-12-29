@@ -17,6 +17,8 @@ mod item;
 use actor::Actor;
 use actors::text::TextActor;
 use actors::time::TimeActor;
+use actors::memory::MemActor;
+use actors::memory::Unit as MemUnit;
 use item::Item;
 
 use serde_json::ser::PrettyFormatter;
@@ -41,6 +43,7 @@ fn main() {
     //     AudioActor::new(),
             Box::new(TimeActor::new()),
             Box::new(TextActor::new(String::from("i3-rustbar is awesome!"))),
+            Box::new(MemActor::new(MemUnit::MB)),
     ];
 
     loop {
