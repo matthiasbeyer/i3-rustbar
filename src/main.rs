@@ -51,7 +51,7 @@ fn main() {
             .iter()
             .map(|a| a.act())
             .collect();
-        println!("{}", to_string(&ary).unwrap());
+        println!("{},", to_string(&ary).unwrap());
         sleep(Duration::new(1, 0));
     }
 }
