@@ -16,7 +16,7 @@ impl TextActor {
 impl Actor for TextActor {
 
     fn act(&self) -> Item {
-        Item::new(self.text.clone())
+        Item::new("custom-text".to_owned()).with_text(self.text.clone())
     }
 
 }
