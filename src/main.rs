@@ -34,7 +34,7 @@ fn main() {
         map.insert("version", 1);
         map.serialize(&mut serializer);
     }
-    println!("["); // Yes this is an ugly hack... but hey, am I perfect?
+    println!("\n["); // Yes this is an ugly hack... but hey, am I perfect?
 
     let actors : Vec<Box<Actor>> = vec![
     //     DHCPActor::new(),
