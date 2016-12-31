@@ -31,7 +31,7 @@ fn main() {
     let mut serializer = Serializer::new(stdout());
     {
         let mut map = BTreeMap::new();
-        map.insert("version", format!("{}", version!()));
+        map.insert("version", 1);
         map.serialize(&mut serializer);
     }
     println!("["); // Yes this is an ugly hack... but hey, am I perfect?
