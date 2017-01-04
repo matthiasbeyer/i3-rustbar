@@ -39,6 +39,8 @@ use serde_json::ser::Serializer;
 use serde_json::ser::to_string;
 use serde::Serialize;
 
+static SLEEP_SECS : u64 = 15;
+
 fn main() {
     let mut serializer = Serializer::new(stdout());
     {
@@ -64,6 +66,6 @@ fn main() {
             .map(|a| a.act())
             .collect();
         println!("{},", to_string(&ary).unwrap());
-        sleep(Duration::new(1, 0));
+        sleep(Duration::from_secs(SLEEP_SECS));
     }
 }
