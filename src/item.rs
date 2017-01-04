@@ -1,7 +1,5 @@
 use std::collections::BTreeMap;
-use std::io::Write;
 
-use serde_json::error::Error;
 use serde::Serializer;
 use serde::Serialize;
 
@@ -19,7 +17,7 @@ pub struct Item {
 
 impl Item {
     pub fn new(name: String) -> Item {
-        Item { 
+        Item {
             color: None,
             full_text: None,
             instance: None,
@@ -50,7 +48,7 @@ impl Item {
 }
 
 impl Serialize for Item {
-    
+
     fn serialize<S>(&self, serializer: &mut S) -> Result<(), S::Error>
         where S: Serializer
     {
