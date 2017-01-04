@@ -5,8 +5,6 @@ extern crate serde_json;
 
 use std::collections::BTreeMap;
 use std::io::stdout;
-use std::io::stderr;
-use std::io::Write;
 use std::thread::sleep;
 use std::time::Duration;
 
@@ -21,18 +19,16 @@ use actors::memory::MemActor;
 use actors::memory::Unit as MemUnit;
 use item::Item;
 
-use serde_json::ser::PrettyFormatter;
 use serde_json::ser::Serializer;
 use serde_json::ser::to_string;
 use serde::Serialize;
-use version::*;
 
 fn main() {
     let mut serializer = Serializer::new(stdout());
     {
         let mut map = BTreeMap::new();
         map.insert("version", 1);
-        map.serialize(&mut serializer);
+        let _ = map.serialize(&mut serializer);
     }
     println!("\n["); // Yes this is an ugly hack... but hey, am I perfect?
 

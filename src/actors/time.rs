@@ -33,14 +33,14 @@ impl Actor for TimeActor {
 
     fn act(&self) -> Item {
         let fmt = {
-            let mut s = String::from("%Y-%m-%d");
-            let mut s = {
+            let s = String::from("%Y-%m-%d");
+            let s = {
                 if self.weekday {
                     format!("{} %a", s)
                 } else { s }
             };
-            let mut s = format!("{} %H:%M", s);
-            let mut s = {
+            let s = format!("{} %H:%M", s);
+            let s = {
                 if self.seconds {
                     format!("{}:%S", s)
                 } else { s }
