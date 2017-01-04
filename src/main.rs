@@ -1,3 +1,19 @@
+#![allow(dead_code)] // we must allow dead code because we are recompile-to-reconfigure
+#![deny(
+    non_camel_case_types,
+    non_snake_case,
+    path_statements,
+    trivial_numeric_casts,
+    unstable_features,
+    unused_allocation,
+    unused_import_braces,
+    unused_imports,
+    unused_must_use,
+    unused_mut,
+    unused_qualifications,
+    while_true,
+)]
+
 extern crate chrono;
 extern crate serde;
 extern crate serde_json;
